@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" width="1200" height="460" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+  <defs>
+    <style>
+      .win{fill:#161b22;stroke:#30363d;stroke-width:1.5}
+      .bar{fill:#1f262e}
+      .t{fill:#8b949e;font-size:12.5px;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif}
+      .l{font-size:13.5px;fill:#c9d1d9}
+      .d{fill:#6e7681}
+      .g{fill:#7dd3c0}
+      .y{fill:#e3b341}
+      .h{fill:#e6edf3;font-weight:700}
+      .q{fill:#8b949e}
+    </style>
+  </defs>
+  <rect width="1200" height="460" rx="16" fill="#0d1117"/>
+
+  <!-- terminal -->
+  <rect class="win" x="40" y="40" width="560" height="380" rx="12"/>
+  <path class="bar" d="M52 40 h536 a12 12 0 0 1 12 12 v22 h-560 v-22 a12 12 0 0 1 12 -12z"/>
+  <circle cx="64" cy="57" r="6" fill="#ff5f57"/><circle cx="84" cy="57" r="6" fill="#febc2e"/><circle cx="104" cy="57" r="6" fill="#28c840"/>
+  <text x="320" y="62" class="t" text-anchor="middle">tail -f ~/projects/git_auto.log</text>
+  <text x="64" y="108" class="l d">--- Sat Oct 10 18:41:52 2026</text>
+  <text x="64" y="130" class="l">[main 572f92d] Auto-Log: 2026-10-10 18:41</text>
+  <text x="64" y="152" class="l"> 1 file changed, 1 insertion(+)</text>
+  <text x="64" y="174" class="l">To github.com:&lt;you&gt;/mac.git</text>
+  <text x="64" y="196" class="l g">   8ab6eac..572f92d  main -&gt; main</text>
+  <text x="64" y="232" class="l d">--- Sat Oct 10 18:56:52 2026</text>
+  <text x="64" y="254" class="l">From github.com:&lt;you&gt;/mac</text>
+  <text x="64" y="276" class="l"> * branch       main -&gt; FETCH_HEAD</text>
+  <text x="64" y="298" class="l">Already up to date.</text>
+  <text x="64" y="320" class="l q">nothing to push</text>
+  <text x="64" y="356" class="l d">--- Sat Oct 10 19:11:52 2026</text>
+  <text x="64" y="378" class="l y">CONFLICT on pull - nothing pushed</text>
+  <rect x="64" y="392" width="9" height="16" fill="#7dd3c0"/>
+
+  <!-- CLAUDE.md -->
+  <rect class="win" x="620" y="40" width="540" height="380" rx="12"/>
+  <path class="bar" d="M632 40 h516 a12 12 0 0 1 12 12 v22 h-540 v-22 a12 12 0 0 1 12 -12z"/>
+  <text x="890" y="62" class="t" text-anchor="middle">CLAUDE.md  ·  read by Claude Code and Codex</text>
+  <text x="644" y="108" class="l h"># CLAUDE.md – Kali (repo &lt;you&gt;/t480-kali)</text>
+  <text x="644" y="140" class="l g">&gt; MANDATORY FOR EVERY AGENT (Claude and Codex):</text>
+  <text x="644" y="162" class="l g">&gt; 1. Read this file at the start of every session.</text>
+  <text x="644" y="184" class="l g">&gt; 2. Pull first.  3. Record every change here.</text>
+  <text x="644" y="220" class="l h">## This machine</text>
+  <text x="644" y="246" class="l">- 2026-10-10 (Claude): auto-backup via cron,</text>
+  <text x="644" y="266" class="l">  not systemd: --user units don't run as root.</text>
+  <text x="644" y="292" class="l">- 2026-10-10 (Claude): 28 projects already have</text>
+  <text x="644" y="312" class="l">  their own remote -&gt; sync MANIFEST.md instead.</text>
+  <text x="644" y="348" class="l h">## All machines</text>
+  <text x="644" y="374" class="l q">| mac | t480-kali | blackarch | windows-server |</text>
+</svg>

@@ -2,6 +2,8 @@
 
 One shared memory for AI coding agents (Claude Code and Codex) across four machines and three operating systems: macOS, two Linux distributions, and Windows Server. Each machine backs itself up to its own private Git repository every 15 minutes, and every agent reads and updates a single Markdown file that tells it what exists, what has been done, and how to behave.
 
+![Architecture: four machines, one repository each, shared CLAUDE.md / AGENTS.md](docs/architecture.svg)
+
 ## The problem
 
 I work with Claude Code and Codex on four machines. Each agent session starts with no knowledge of what another agent did on another machine an hour ago. That produced three recurring failures:
@@ -12,34 +14,21 @@ I work with Claude Code and Codex on four machines. Each agent session starts wi
 
 ## The design
 
-```mermaid
-flowchart LR
-    subgraph mac[macOS]
-        A1[Claude / Codex] -->|reads + updates| M1[CLAUDE.md = AGENTS.md]
-        L1[launchd · 15 min] --> R1[(repo: mac)]
-    end
-    subgraph kali[Linux · Kali]
-        A2[Claude / Codex] --> M2[CLAUDE.md = AGENTS.md]
-        L2[cron / systemd · 15 min] --> R2[(repo: t480-kali)]
-    end
-    subgraph arch[Linux · BlackArch]
-        A3[Claude / Codex] --> M3[CLAUDE.md = AGENTS.md]
-        L3[systemd timer · 15 min] --> R3[(repo: blackarch)]
-    end
-    subgraph win[Windows Server]
-        A4[Claude / Codex] --> M4[CLAUDE.md + AGENTS.md]
-        L4[Task Scheduler · 15 min] --> R4[(repo: windows-server)]
-    end
-    A1 -. "gh api: read other machines' state" .-> R2 & R3 & R4
-```
-
 **One repository per machine.** Each repository has exactly one primary writer, its own machine, so automatic sync almost never conflicts. Agents on other machines can still read any machine's state through the GitHub API.
 
 **One file, two agents.** Claude Code loads `CLAUDE.md` and Codex loads `AGENTS.md`. On macOS and Linux, `AGENTS.md` is a symlink to `CLAUDE.md`, so both agents edit the same file. Git on Windows does not create symlinks by default, so the Windows sync task keeps the two copies identical instead, and the newer file wins.
 
 **The file is the memory.** Every `CLAUDE.md` begins with the same mandatory rule: pull first, read this file, and record anything you set up, change or decide here, with the date. The sync job then publishes the update. The file also lists every project on the machine and states that new projects go into `~/projects/<name>`, because only that folder is backed up.
 
+![Sync cycle: commit, pull --rebase, push; abort on conflict](docs/sync-cycle.svg)
+
 **Safe-by-default sync.** Every 15 minutes: commit → `pull --rebase` → push. On a rebase conflict the job aborts the rebase, logs the conflict and pushes nothing, which leaves the working tree intact. Secrets (`.env`, private keys, service-account JSON) are excluded in `.gitignore` before the first commit.
+
+## In practice
+
+![Example sync log next to an excerpt of a machine's CLAUDE.md](docs/in-practice.svg)
+
+*Left: example output of the sync log. Right: excerpt of the Kali machine's CLAUDE.md, written by the agent on that machine.*
 
 ## Repository layout
 

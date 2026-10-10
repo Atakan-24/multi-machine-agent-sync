@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="1200" height="380" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7dd3c0"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f0883e"/></marker>
+    <style>
+      .box{fill:#161b22;stroke:#30363d;stroke-width:1.5}
+      .ok{fill:#0f1b1a;stroke:#7dd3c0;stroke-width:1.5}
+      .bad{fill:#221a12;stroke:#f0883e;stroke-width:1.5}
+      .t{fill:#e6edf3;font-size:18px;font-weight:600}
+      .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#8b949e;font-size:13px}
+      .s{fill:#8b949e;font-size:13px}
+    </style>
+  </defs>
+  <rect width="1200" height="380" rx="16" fill="#0d1117"/>
+  <text x="60" y="56" fill="#e6edf3" font-size="22" font-weight="700">Every 15 minutes</text>
+  <text x="60" y="82" class="s" font-size="14">Never force-push. If the rebase conflicts, stop and leave the decision to a human or an agent.</text>
+
+  <rect class="box" x="60" y="118" width="230" height="96" rx="12"/>
+  <text x="84" y="156" class="t">1 · Commit</text>
+  <text x="84" y="182" class="m">git add -A</text>
+  <text x="84" y="200" class="m">git commit "Auto-Log"</text>
+
+  <rect class="box" x="340" y="118" width="250" height="96" rx="12"/>
+  <text x="364" y="156" class="t">2 · Pull</text>
+  <text x="364" y="182" class="m">git pull --rebase</text>
+  <text x="364" y="200" class="s">picks up CLAUDE.md edits</text>
+
+  <rect class="ok" x="640" y="118" width="230" height="96" rx="12"/>
+  <text x="664" y="156" class="t">3 · Push</text>
+  <text x="664" y="182" class="m">git push origin main</text>
+  <text x="664" y="200" class="s">only if ahead of remote</text>
+
+  <rect class="box" x="920" y="118" width="220" height="96" rx="12"/>
+  <text x="944" y="156" class="t">Log</text>
+  <text x="944" y="182" class="m">git_auto.log</text>
+  <text x="944" y="200" class="s">every run, timestamped</text>
+
+  <g stroke="#7dd3c0" stroke-width="2" fill="none" marker-end="url(#a)">
+    <path d="M292 166 H336"/>
+    <path d="M592 166 H636"/>
+    <path d="M872 166 H916"/>
+  </g>
+
+  <!-- conflict branch -->
+  <path d="M465 216 V276 H636" stroke="#f0883e" stroke-width="2" fill="none" stroke-dasharray="6 5" marker-end="url(#r)"/>
+  <text x="478" y="262" fill="#f0883e" font-size="13" font-weight="600">conflict</text>
+  <rect class="bad" x="640" y="240" width="500" height="80" rx="12"/>
+  <text x="664" y="274" class="t">git rebase --abort</text>
+  <text x="664" y="300" class="s">working tree intact · nothing pushed · "CONFLICT" written to the log</text>
+</svg>
