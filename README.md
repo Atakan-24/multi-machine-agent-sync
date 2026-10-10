@@ -14,6 +14,27 @@ I work with Claude Code and Codex on four machines. Each agent session starts wi
 
 ## The design
 
+```mermaid
+flowchart LR
+    subgraph mac[macOS]
+        A1[Claude / Codex] -->|reads + updates| M1[CLAUDE.md = AGENTS.md]
+        L1[launchd · 15 min] --> R1[(repo: mac)]
+    end
+    subgraph kali[Linux · Kali]
+        A2[Claude / Codex] --> M2[CLAUDE.md = AGENTS.md]
+        L2[cron / systemd · 15 min] --> R2[(repo: t480-kali)]
+    end
+    subgraph arch[Linux · BlackArch]
+        A3[Claude / Codex] --> M3[CLAUDE.md = AGENTS.md]
+        L3[systemd timer · 15 min] --> R3[(repo: blackarch)]
+    end
+    subgraph win[Windows Server]
+        A4[Claude / Codex] --> M4[CLAUDE.md + AGENTS.md]
+        L4[Task Scheduler · 15 min] --> R4[(repo: windows-server)]
+    end
+    A1 -. "gh api: read other machines' state" .-> R2 & R3 & R4
+```
+
 **One repository per machine.** Each repository has exactly one primary writer, its own machine, so automatic sync almost never conflicts. Agents on other machines can still read any machine's state through the GitHub API.
 
 **One file, two agents.** Claude Code loads `CLAUDE.md` and Codex loads `AGENTS.md`. On macOS and Linux, `AGENTS.md` is a symlink to `CLAUDE.md`, so both agents edit the same file. Git on Windows does not create symlinks by default, so the Windows sync task keeps the two copies identical instead, and the newer file wins.

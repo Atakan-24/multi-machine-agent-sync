@@ -1,50 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="1200" height="380" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 560" width="880" height="560" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
   <defs>
-    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7dd3c0"/></marker>
-    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f0883e"/></marker>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7dd3c0"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f0883e"/></marker>
     <style>
-      .box{fill:#161b22;stroke:#30363d;stroke-width:1.5}
-      .ok{fill:#0f1b1a;stroke:#7dd3c0;stroke-width:1.5}
-      .bad{fill:#221a12;stroke:#f0883e;stroke-width:1.5}
-      .t{fill:#e6edf3;font-size:18px;font-weight:600}
-      .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#8b949e;font-size:13px}
-      .s{fill:#8b949e;font-size:13px}
+      .box{fill:#161b22;stroke:#30363d;stroke-width:2}
+      .ok{fill:#0f1b1a;stroke:#7dd3c0;stroke-width:2}
+      .bad{fill:#221a12;stroke:#f0883e;stroke-width:2}
+      .t{fill:#e6edf3;font-size:26px;font-weight:700}
+      .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#c9d1d9;font-size:19px}
+      .s{fill:#9da7b3;font-size:19px}
     </style>
   </defs>
-  <rect width="1200" height="380" rx="16" fill="#0d1117"/>
-  <text x="60" y="56" fill="#e6edf3" font-size="22" font-weight="700">Every 15 minutes</text>
-  <text x="60" y="82" class="s" font-size="14">Never force-push. If the rebase conflicts, stop and leave the decision to a human or an agent.</text>
+  <rect width="880" height="560" rx="18" fill="#0d1117"/>
+  <text x="40" y="62" fill="#e6edf3" font-size="34" font-weight="700">Every 15 minutes</text>
+  <text x="40" y="98" class="s" font-size="20">Never force-push. On conflict: stop, log, leave the decision to a human.</text>
 
-  <rect class="box" x="60" y="118" width="230" height="96" rx="12"/>
-  <text x="84" y="156" class="t">1 · Commit</text>
-  <text x="84" y="182" class="m">git add -A</text>
-  <text x="84" y="200" class="m">git commit "Auto-Log"</text>
+  <rect class="box" x="40" y="130" width="250" height="130" rx="14"/>
+  <text x="64" y="174" class="t">1 · Commit</text>
+  <text x="64" y="208" class="m">git add -A</text>
+  <text x="64" y="236" class="m">git commit</text>
 
-  <rect class="box" x="340" y="118" width="250" height="96" rx="12"/>
-  <text x="364" y="156" class="t">2 · Pull</text>
-  <text x="364" y="182" class="m">git pull --rebase</text>
-  <text x="364" y="200" class="s">picks up CLAUDE.md edits</text>
+  <rect class="box" x="315" y="130" width="250" height="130" rx="14"/>
+  <text x="339" y="174" class="t">2 · Pull</text>
+  <text x="339" y="208" class="m">git pull --rebase</text>
+  <text x="339" y="236" class="s">gets CLAUDE.md edits</text>
 
-  <rect class="ok" x="640" y="118" width="230" height="96" rx="12"/>
-  <text x="664" y="156" class="t">3 · Push</text>
-  <text x="664" y="182" class="m">git push origin main</text>
-  <text x="664" y="200" class="s">only if ahead of remote</text>
+  <rect class="ok" x="590" y="130" width="250" height="130" rx="14"/>
+  <text x="614" y="174" class="t">3 · Push</text>
+  <text x="614" y="208" class="m">git push</text>
+  <text x="614" y="236" class="s">only if ahead</text>
 
-  <rect class="box" x="920" y="118" width="220" height="96" rx="12"/>
-  <text x="944" y="156" class="t">Log</text>
-  <text x="944" y="182" class="m">git_auto.log</text>
-  <text x="944" y="200" class="s">every run, timestamped</text>
-
-  <g stroke="#7dd3c0" stroke-width="2" fill="none" marker-end="url(#a)">
-    <path d="M292 166 H336"/>
-    <path d="M592 166 H636"/>
-    <path d="M872 166 H916"/>
+  <g stroke="#7dd3c0" stroke-width="3" fill="none" marker-end="url(#a)">
+    <path d="M292 195 H311"/>
+    <path d="M567 195 H586"/>
   </g>
 
-  <!-- conflict branch -->
-  <path d="M465 216 V276 H636" stroke="#f0883e" stroke-width="2" fill="none" stroke-dasharray="6 5" marker-end="url(#r)"/>
-  <text x="478" y="262" fill="#f0883e" font-size="13" font-weight="600">conflict</text>
-  <rect class="bad" x="640" y="240" width="500" height="80" rx="12"/>
-  <text x="664" y="274" class="t">git rebase --abort</text>
-  <text x="664" y="300" class="s">working tree intact · nothing pushed · "CONFLICT" written to the log</text>
+  <path d="M440 264 V340" stroke="#f0883e" stroke-width="3" fill="none" stroke-dasharray="8 6" marker-end="url(#r)"/>
+  <text x="456" y="310" fill="#f0883e" font-size="20" font-weight="700">conflict</text>
+
+  <rect class="bad" x="40" y="346" width="800" height="170" rx="14"/>
+  <text x="68" y="394" class="t">git rebase --abort</text>
+  <text x="68" y="434" class="s">✓ working tree stays intact</text>
+  <text x="68" y="466" class="s">✓ nothing is pushed</text>
+  <text x="68" y="498" class="s">✓ "CONFLICT" is written to git_auto.log</text>
 </svg>

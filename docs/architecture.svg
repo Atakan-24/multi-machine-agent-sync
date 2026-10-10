@@ -1,85 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 780" width="880" height="780" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#0d1117"/>
-      <stop offset="1" stop-color="#111a22"/>
-    </linearGradient>
-    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#7dd3c0"/>
     </marker>
-    <marker id="arrDim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#6e7681"/>
-    </marker>
     <style>
-      .card{fill:#161b22;stroke:#30363d;stroke-width:1.5}
-      .os{fill:#e6edf3;font-size:20px;font-weight:600}
-      .sub{fill:#8b949e;font-size:13px}
+      .card{fill:#161b22;stroke:#30363d;stroke-width:2}
+      .os{fill:#e6edf3;font-size:28px;font-weight:700}
+      .sub{fill:#9da7b3;font-size:19px}
       .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-      .pill{fill:#0f2a26;stroke:#7dd3c0;stroke-width:1.2}
-      .pilltxt{fill:#7dd3c0;font-size:12.5px}
-      .repo{fill:#e6edf3;font-size:13px}
-      .lbl{fill:#7dd3c0;font-size:12px;font-weight:600;letter-spacing:.06em}
+      .pill{fill:#0f2a26;stroke:#7dd3c0;stroke-width:1.5}
+      .pilltxt{fill:#7dd3c0;font-size:18px}
+      .path{fill:#e6edf3;font-size:19px}
     </style>
   </defs>
-  <rect width="1200" height="600" rx="16" fill="url(#bg)"/>
+  <rect width="880" height="780" rx="18" fill="#0d1117"/>
 
-  <text x="60" y="64" fill="#e6edf3" font-size="26" font-weight="700">One memory, four machines, two agents</text>
-  <text x="60" y="94" class="sub" font-size="15">Each machine syncs its own repo every 15 minutes. Every agent reads and updates the same CLAUDE.md / AGENTS.md.</text>
+  <text x="40" y="64" fill="#e6edf3" font-size="34" font-weight="700">One memory, four machines, two agents</text>
+  <text x="40" y="100" class="sub" font-size="20">Each machine syncs its own repo every 15 min.</text>
+  <text x="40" y="128" class="sub" font-size="20">Every agent reads and updates the same CLAUDE.md / AGENTS.md.</text>
 
-  <!-- machine cards -->
-  <g>
-    <rect class="card" x="60" y="130" width="250" height="210" rx="12"/>
-    <text x="84" y="168" class="os">macOS</text>
-    <text x="84" y="190" class="sub mono">launchd · 900 s</text>
-    <rect class="pill" x="84" y="208" width="202" height="30" rx="15"/>
-    <text x="185" y="228" class="pilltxt mono" text-anchor="middle">CLAUDE.md ⇄ AGENTS.md</text>
-    <text x="84" y="268" class="sub">Claude Code · Codex</text>
-    <text x="84" y="316" class="repo mono">~/projects</text>
-  </g>
-  <g>
-    <rect class="card" x="340" y="130" width="250" height="210" rx="12"/>
-    <text x="364" y="168" class="os">Kali Linux</text>
-    <text x="364" y="190" class="sub mono">cron · */15</text>
-    <rect class="pill" x="364" y="208" width="202" height="30" rx="15"/>
-    <text x="465" y="228" class="pilltxt mono" text-anchor="middle">CLAUDE.md ⇄ AGENTS.md</text>
-    <text x="364" y="268" class="sub">Claude Code · Codex</text>
-    <text x="364" y="316" class="repo mono">MANIFEST.md (28 repos)</text>
-  </g>
-  <g>
-    <rect class="card" x="620" y="130" width="250" height="210" rx="12"/>
-    <text x="644" y="168" class="os">BlackArch</text>
-    <text x="644" y="190" class="sub mono">systemd timer · 15 min</text>
-    <rect class="pill" x="644" y="208" width="202" height="30" rx="15"/>
-    <text x="745" y="228" class="pilltxt mono" text-anchor="middle">CLAUDE.md ⇄ AGENTS.md</text>
-    <text x="644" y="268" class="sub">Claude Code · Codex</text>
-    <text x="644" y="316" class="repo mono">~/projects</text>
-  </g>
-  <g>
-    <rect class="card" x="900" y="130" width="250" height="210" rx="12"/>
-    <text x="924" y="168" class="os">Windows Server</text>
-    <text x="924" y="190" class="sub mono">Task Scheduler · 15 min</text>
-    <rect class="pill" x="924" y="208" width="202" height="30" rx="15"/>
-    <text x="1025" y="228" class="pilltxt mono" text-anchor="middle">CLAUDE.md = AGENTS.md</text>
-    <text x="924" y="268" class="sub">Claude Code · Codex</text>
-    <text x="924" y="316" class="repo mono">$HOME\projects</text>
-  </g>
+  <!-- row 1 -->
+  <rect class="card" x="40" y="160" width="390" height="190" rx="14"/>
+  <text x="66" y="204" class="os">macOS</text>
+  <text x="66" y="234" class="sub mono">launchd · every 900 s</text>
+  <rect class="pill" x="66" y="252" width="270" height="38" rx="19"/>
+  <text x="201" y="277" class="pilltxt mono" text-anchor="middle">CLAUDE.md ⇄ AGENTS.md</text>
+  <text x="66" y="328" class="path mono">~/projects</text>
 
-  <!-- arrows down -->
-  <g stroke="#7dd3c0" stroke-width="2" fill="none" marker-end="url(#arr)">
-    <path d="M185 342 V430"/>
-    <path d="M465 342 V430"/>
-    <path d="M745 342 V430"/>
-    <path d="M1025 342 V430"/>
-  </g>
-  <text x="196" y="392" class="lbl">COMMIT · PULL · PUSH</text>
+  <rect class="card" x="450" y="160" width="390" height="190" rx="14"/>
+  <text x="476" y="204" class="os">Kali Linux</text>
+  <text x="476" y="234" class="sub mono">cron · */15</text>
+  <rect class="pill" x="476" y="252" width="270" height="38" rx="19"/>
+  <text x="611" y="277" class="pilltxt mono" text-anchor="middle">CLAUDE.md ⇄ AGENTS.md</text>
+  <text x="476" y="328" class="path mono">MANIFEST.md · 28 repos</text>
 
-  <!-- github bar -->
-  <rect x="60" y="436" width="1090" height="110" rx="12" fill="#0f1b1a" stroke="#7dd3c0" stroke-width="1.5"/>
-  <g transform="translate(84 470)">
-    <path fill="#e6edf3" transform="scale(1.6)" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+  <!-- row 2 -->
+  <rect class="card" x="40" y="370" width="390" height="190" rx="14"/>
+  <text x="66" y="414" class="os">BlackArch</text>
+  <text x="66" y="444" class="sub mono">systemd timer · 15 min</text>
+  <rect class="pill" x="66" y="462" width="270" height="38" rx="19"/>
+  <text x="201" y="487" class="pilltxt mono" text-anchor="middle">CLAUDE.md ⇄ AGENTS.md</text>
+  <text x="66" y="538" class="path mono">~/projects</text>
+
+  <rect class="card" x="450" y="370" width="390" height="190" rx="14"/>
+  <text x="476" y="414" class="os">Windows Server</text>
+  <text x="476" y="444" class="sub mono">Task Scheduler · 15 min</text>
+  <rect class="pill" x="476" y="462" width="270" height="38" rx="19"/>
+  <text x="611" y="487" class="pilltxt mono" text-anchor="middle">CLAUDE.md = AGENTS.md</text>
+  <text x="476" y="538" class="path mono">$HOME\projects</text>
+
+  <!-- arrow -->
+  <path d="M440 566 V606" stroke="#7dd3c0" stroke-width="3" fill="none" marker-end="url(#arr)"/>
+  <text x="458" y="594" fill="#7dd3c0" font-size="16" font-weight="700" letter-spacing="1.5">COMMIT · PULL · PUSH</text>
+
+  <!-- github -->
+  <rect x="40" y="614" width="800" height="130" rx="14" fill="#0f1b1a" stroke="#7dd3c0" stroke-width="2"/>
+  <g transform="translate(66 646)">
+    <path fill="#e6edf3" transform="scale(2)" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
   </g>
-  <text x="124" y="482" fill="#e6edf3" font-size="18" font-weight="600">GitHub · one private repository per machine</text>
-  <text x="124" y="508" class="sub mono">mac · t480-kali · blackarch · windows-server</text>
-  <text x="1126" y="482" class="sub" text-anchor="end">any agent can read any machine:</text>
-  <text x="1126" y="508" class="pilltxt mono" text-anchor="end">gh api repos/&lt;you&gt;/&lt;repo&gt;/contents/CLAUDE.md</text>
+  <text x="114" y="666" fill="#e6edf3" font-size="24" font-weight="700">GitHub · one private repo per machine</text>
+  <text x="114" y="696" class="sub mono" font-size="18">mac · t480-kali · blackarch · windows-server</text>
+  <text x="114" y="726" class="pilltxt mono" font-size="17">any agent reads any machine via gh api</text>
 </svg>
