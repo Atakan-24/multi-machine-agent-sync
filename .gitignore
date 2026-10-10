@@ -1,0 +1,18 @@
+# Secrets
+.env
+.env.*
+*.key
+*.pem
+*adminsdk*.json
+*service-account*.json
+google-services.json
+.netlify/
+# Build / deps
+node_modules/
+.venv/
+venv/
+__pycache__/
+# Noise
+git_auto.log
+.DS_Store
+*.zip
