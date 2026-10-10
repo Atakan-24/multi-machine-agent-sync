@@ -1,5 +1,5 @@
 #!/bin/bash
-# Auto-sync for ~/projects: commit -> pull --rebase -> push. Run by launchd every 15 min.
+# Auto-sync for ~/projects: commit -> pull --rebase -> push. Run every 15 min by launchd (macOS) or a systemd timer (Linux).
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
 cd "$HOME/projects" || exit 1
 echo "--- $(date)"

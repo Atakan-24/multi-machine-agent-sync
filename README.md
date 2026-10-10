@@ -55,9 +55,11 @@ flowchart LR
 
 | Path | What it is |
 |---|---|
-| [`macos/git_auto.sh`](macos/git_auto.sh) + [`macos/com.git.auto.plist`](macos/com.git.auto.plist) | Sync script and launchd agent (`StartInterval` 900 s, `RunAtLoad`) |
-| [`linux/setup.sh`](linux/setup.sh) | Installs the sync script and a systemd user timer (`OnUnitActiveSec=15min`, `Persistent=true`, linger enabled) |
-| [`windows/setup.ps1`](windows/setup.ps1) | Installs the sync script and a Task Scheduler job, and keeps `CLAUDE.md` and `AGENTS.md` in step |
+| [`git_auto.sh`](git_auto.sh) | Sync script for macOS and Linux (24 lines) |
+| [`macos/com.git.auto.plist`](macos/com.git.auto.plist) | launchd agent (`StartInterval` 900 s, `RunAtLoad`) |
+| [`linux/setup.sh`](linux/setup.sh) | Installs `git_auto.sh` and a systemd user timer (`OnUnitActiveSec=15min`, `Persistent=true`) |
+| [`windows/git_auto.ps1`](windows/git_auto.ps1) | Sync script for Windows; also keeps `CLAUDE.md` and `AGENTS.md` identical |
+| [`windows/setup.ps1`](windows/setup.ps1) | Installs `git_auto.ps1` as a scheduled task |
 | [`templates/CLAUDE.md`](templates/CLAUDE.md) | Starting point for one machine's shared memory file |
 | [`templates/.gitignore`](templates/.gitignore) | Secret and noise exclusions applied before the first commit |
 
@@ -75,7 +77,7 @@ Replace `<you>` and `<repo>` with your own values.
 
 **macOS**
 ```bash
-mkdir -p ~/projects && cp macos/git_auto.sh ~/projects/ && chmod +x ~/projects/git_auto.sh
+mkdir -p ~/projects && cp git_auto.sh ~/projects/ && chmod +x ~/projects/git_auto.sh
 sed "s|__HOME__|$HOME|g" macos/com.git.auto.plist > ~/Library/LaunchAgents/com.git.auto.plist
 launchctl load ~/Library/LaunchAgents/com.git.auto.plist
 ```

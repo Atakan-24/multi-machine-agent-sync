@@ -6,6 +6,12 @@
 > 3. When you set up, change or decide something: record it under "This machine" right away (with the date and the agent name), then commit and push.
 > 4. This file is the memory shared across all machines and agents. If you don't update it, the next agent won't know.
 
+## Code style (most important rule)
+- Code must be easy for other programmers to read and review.
+- As little code as possible: no bloat, no abstractions or options "for later", no dead lines.
+- One thing per line, no nested one-liners. Comment only where the *why* isn't obvious.
+- Before finishing, reread your code and delete every line that isn't needed.
+
 ## How to work
 - Do things yourself instead of handing back commands to run. Report briefly afterwards.
 - Logins, passwords and permanent deletion stay with the human.
